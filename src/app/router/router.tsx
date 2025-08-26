@@ -8,5 +8,7 @@ export const router = createBrowserRouter(
       element: <BaseLayout />,
     },
   ],
-  { basename: import.meta.env.BASE_URL }
+  {
+    basename: '/ProjectPet',
+  }
 );
