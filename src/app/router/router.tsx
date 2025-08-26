@@ -1,14 +1,7 @@
-import { createBrowserRouter } from 'react-router';
+import { createHashRouter } from 'react-router';
 import { BaseLayout } from '../layout/base-layout';
 
-export const router = createBrowserRouter(
-  [
-    {
-      path: '/',
-      element: <BaseLayout />,
-    },
-  ],
-  {
-    basename: import.meta.env.BASE_URL,
-  }
-);
+export const router = createHashRouter([
+  { path: '/', element: <BaseLayout /> },
+  { path: '*', element: <div>Not found</div> },
+]);
