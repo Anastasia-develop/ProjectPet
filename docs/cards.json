@@ -1,0 +1,9 @@
+{
+  "cards": [
+    { "id": "c1", "content": "Спроектировать дизайн", "done": false },
+    { "id": "c2", "content": "Выучить английский", "done": false },
+    { "id": "c3", "content": "Написать тесты", "done": false },
+    { "id": "c4", "content": "Полететь на луну", "done": false },
+    { "id": "c5", "content": "Окончить университет", "done": false }
+  ]
+}
