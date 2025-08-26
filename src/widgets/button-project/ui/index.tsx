@@ -27,10 +27,8 @@ export const ButtonProject = ({
         borderRadius: '9px',
         cursor: 'pointer',
       }}
-      className={`${current?.id === project.id ? 'current-button' : 'invisible-button'}`}
-      onClick={() => {
-        setCurrent(project);
-      }}
+      className={`${current === project ? 'current-button' : 'invisible-button'}`}
+      onClick={() => setCurrent(project)}
     >
       {project.name}
       {current?.id === project.id && (

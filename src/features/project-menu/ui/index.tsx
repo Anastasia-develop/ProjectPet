@@ -19,25 +19,52 @@ export const ProjectMenu = ({
     email: 'kozl0vaan4s@yandex.ru',
   };
 
-  const [currentProjects, setCurrentProjects] = useState(projects);
+  const [currentProjects, setCurrentProjects] = useState<IProjectMain[]>(() =>
+    Array.isArray(projects) ? projects : []
+  );
   const [modal, setModal] = useState(false);
 
   const createProject = (name: string) => {
-    if (name) {
-      const project: IProjectMain = {
-        id: projects[projects.length - 1].id + 1,
-        name,
-        columns: [],
-      };
-      setCurrentProjects((prev) => [...prev, project]);
-      setCurrent(project);
-      setModal(false);
+    if (!name) return;
+    const nextId =
+      currentProjects.length > 0
+        ? Math.max(...currentProjects.map((p) => Number(p.id))) + 1
+        : 1;
+    const project: IProjectMain = {
+      id: nextId,
+      name,
+      columns: [],
+    };
+    const updated = [...currentProjects, project];
+    setCurrentProjects(updated);
+    setCurrent(project);
+    setModal(false);
+  };
+
+  const deleteProject = (id: number) => {
+    const updated = currentProjects.filter((p) => p.id !== id);
+    setCurrentProjects(updated);
+    if (current?.id === id) {
+      setCurrent(updated[0] ?? null);
     }
   };
 
   useEffect(() => {
-    setCurrentProjects(projects ?? []);
+    setCurrentProjects(Array.isArray(projects) ? projects : []);
   }, [projects]);
+
+  useEffect(() => {
+    if (currentProjects.length === 0) {
+      if (current !== null) setCurrent(null);
+      return;
+    }
+    const exists = current
+      ? currentProjects.some((p) => p.id === current.id)
+      : false;
+    if (!current || !exists) {
+      setCurrent(currentProjects[0]);
+    }
+  }, [currentProjects, current, setCurrent]);
 
   return (
     <div style={{ height: '100vh', width: '300px' }}>
@@ -82,16 +109,7 @@ export const ProjectMenu = ({
                   project={item}
                   current={current}
                   setCurrent={setCurrent}
-                  action={() => {
-                    setCurrentProjects((prev) => {
-                      const updated = prev.filter((i) => i.id !== item.id);
-                      if (current?.id === item.id) {
-                        setCurrent(updated.length > 0 ? updated[0] : null);
-                      }
-
-                      return updated;
-                    });
-                  }}
+                  action={() => deleteProject(item.id)}
                 />
               </div>
             ))}
