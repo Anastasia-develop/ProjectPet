@@ -1,73 +1,30 @@
-# ProjectPet
+# Фронтенд для сервиса по ведению задач и командных проектов
 
-My Pet Projects
+Фронт веб-приложения с досками (проектами), колонками и карточками внутри. Сделано в качестве пет-проекта
 
-# React + TypeScript + Vite
+## Основные модули
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Меню со списком проектов. При нажатии на каждый проект открывается его поле со списком колонок и их карточками. У проекта можно посмотреть список пользователей (при нажатии - удалить их)
+2. Кнопка "Создать проект" - вызов модального окна с текстовым полем для названия проекта
+3. Поле с колонками и карточками внутри. У каждой карточки можно отметить выполнение, внутри колонки добавить новые
 
-Currently, two official plugins are available:
+## Основные технологии
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Сборка на Vite
+2. React TypeScript
+3. Библиотека для React @mui/material: Popover, Modal, TextField
 
-## Expanding the ESLint configuration
+### Дизайн
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+https://www.figma.com/design/9VwkGmiTp3294dI8MCqnG0/%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%BD%D0%B8%D0%BA?node-id=0-1&p=f&t=hnhop8XFjx9ma7d5-0
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Проект опубликован с использование GitHub Pages
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+https://anastasia-develop.github.io/ProjectPet/
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+### Примечание
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Проект реализован без Бэкенд части, поэтому функционал сильно урезан. Файлы с примером данных, которые должны приходить с бэка лежат внутри public. При перезагрузке страницы данные сохраняться не будут
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+тг:
+@testingcheat

@@ -140,7 +140,7 @@ export const ProjectMenu = ({
               bottom: '1%',
             }}
           >
-            kozl0vaan4s@yandex.ru
+            @testingcheat
           </p>
         </div>
       </div>
