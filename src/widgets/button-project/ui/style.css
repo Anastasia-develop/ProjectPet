@@ -1,0 +1,17 @@
+.current-button {
+    background-color: #F5F5F5;
+    border: none;
+    cursor: default;
+    font-family: 'Inter-SemiBold';
+}
+
+.invisible-button {
+    background-color: white;
+    border: none;
+    font-family: 'Inter-Medium';
+}
+
+.invisible-button:hover {
+    background-color: #F5F5F5;
+    font-family: 'Inter-SemiBold';
+}
