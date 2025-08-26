@@ -15,6 +15,10 @@
 2. React TypeScript
 3. Библиотека для React @mui/material: Popover, Modal, TextField
 
+### Структура
+
+Основана на Feature-Sliced Design: https://feature-sliced.design/
+
 ### Дизайн
 
 https://www.figma.com/design/9VwkGmiTp3294dI8MCqnG0/%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%BD%D0%B8%D0%BA?node-id=0-1&p=f&t=hnhop8XFjx9ma7d5-0
